@@ -195,6 +195,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -232,6 +234,7 @@
     <Content Include="css\color-red2.css" />
     <Content Include="css\color-yellow.css" />
     <Content Include="css\color-yellow2.css" />
+    <Content Include="css\custom_style.css" />
     <Content Include="css\libs\AjaxLoader.gif" />
     <Content Include="css\libs\animate.css" />
     <Content Include="css\libs\blank.gif" />
@@ -262,6 +265,7 @@
     <Content Include="images\blog\av2.jpg" />
     <Content Include="images\blog\av3.jpg" />
     <Content Include="images\blog\av4.jpg" />
+    <Content Include="images\blog\bg-login.jpg" />
     <Content Include="images\blog\large1.jpg" />
     <Content Include="images\blog\large2.jpg" />
     <Content Include="images\blog\large3.jpg" />
@@ -971,6 +975,10 @@
     <Content Include="css\fonts\fontawesome-webfont.woff_v=4.7.0" />
     <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1018,9 +1026,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
