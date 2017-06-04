@@ -51,24 +51,16 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         {
              
             Models.ProductType.UpdateProductType(lsp);
-            return RedirectToAction("Create");
+            return RedirectToAction("Index");
             
         }
 
-        // GET: Admin/ProductType/Delete/5
+         
         public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Admin/ProductType/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                Models.ProductType.DeleteProductType(id);
                 return RedirectToAction("Index");
             }
             catch
