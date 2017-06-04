@@ -204,6 +204,7 @@
     <Compile Include="Areas\Admin\Models\Manufacturer.cs" />
     <Compile Include="Areas\Admin\Models\Product.cs" />
     <Compile Include="Areas\Admin\Models\ProductType.cs" />
+    <Compile Include="Areas\Admin\Models\ProductType_Manufacturer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
