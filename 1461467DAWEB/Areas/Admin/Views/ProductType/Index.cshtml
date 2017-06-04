@@ -5,19 +5,22 @@
     <table id="hiding-columns-example-1" class="table" data-expand-first="true">
         <thead>
             <tr>
-                <th data-visible="false">ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th data-breakpoints="xs">Job Title</th>
+                <th data-visible="false">Mã Loại</th>
+                <th>Tên Loại Sản phẩm</th>
+                <th>Sửa</th>
+                <th data-breakpoints="xs">Xóa</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Dennise</td>
-                <td>Fuhrman</td>
-                <td>High School History Teacher</td>
-            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item._LoaiSanPham</td>
+                    <td>@item.TenLoaiSanPham</td>
+                    <td><a href="@Url.Action("Edit", "ProductType")">Sửa</a></td>
+                    <td><a href="@Url.Action("Delete", "ProductType")">Xóa</a></td>
+                </tr>
+            }
         </tbody>
     </table>
     <!-- End FooTable Hiding Columns -->

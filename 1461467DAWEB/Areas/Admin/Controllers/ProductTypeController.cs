@@ -12,7 +12,8 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/ProductType
         public ActionResult Index()
         {
-            return View();
+            var resultProductType =  Models.ProductType.ListProductType();
+            return View(resultProductType);
         }
 
         // GET: Admin/ProductType/Create
