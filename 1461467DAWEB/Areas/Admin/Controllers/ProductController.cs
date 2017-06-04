@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using ShopConnection;
 namespace _1461467DAWEB.Areas.Admin.Controllers
 {
     //[Authorize(Roles ="Admin") ]
@@ -12,7 +12,8 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/Product
         public ActionResult Index()
         {
-            return View();
+            var resultProduct = Models.Product.ListProduct();
+            return View(resultProduct);
         }
 
         // GET: Admin/Product/Details/5
@@ -24,29 +25,39 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
+            ViewBag.Manufacturer = Models.Manufacturer.ListManufacturer();
+            ViewBag.ProductType = Models.ProductType.ListProductType();
             return View();
         }
 
         // POST: Admin/Product/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Create(SanPham sp)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            string pathValue = Server.MapPath("~/");
 
-                return RedirectToAction("Index");
-            }
-            catch
+            var hpt = HttpContext.Request.Files[0];
+            if (HttpContext.Request.Files.Count > 0)
             {
-                return View();
+                if (hpt.ContentLength > 0)
+                {
+                    string temp = hpt.FileName;
+                    string RDString = Guid.NewGuid().ToString();
+                    string fullNameImage = "upload/img/" + RDString + temp;
+                    hpt.SaveAs(pathValue + fullNameImage);
+                    sp.TenHinh = fullNameImage;
+                }
             }
+
+            Models.Product.insertProduct(sp);
+            return RedirectToAction("Index");
+            
         }
 
         // GET: Admin/Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(Models.Product.GetProduct(id));
         }
 
         // POST: Admin/Product/Edit/5

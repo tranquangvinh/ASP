@@ -28,7 +28,7 @@
 //     Provider:               `System.Data.SqlClient`
 //     Connection String:      `Data Source=DESKTOP-AL6E44R;Initial Catalog=ShopBanHang;Integrated Security=True`
 //     Schema:                 ``
-//     Include Views:          `False`
+//     Include Views:          `True`
 
 
 
@@ -690,6 +690,80 @@ namespace ShopConnection
 
 
 		[Column] public byte[] definition { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.View_lsp_hsx")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class View_lsp_hsx : ShopConnectionDB.Record<View_lsp_hsx>  
+    {
+
+
+
+		[Column] public int MaSanPham { get; set; }
+
+
+
+
+
+		[Column] public string TenSanPham { get; set; }
+
+
+
+
+
+		[Column] public decimal? Gia { get; set; }
+
+
+
+
+
+		[Column] public decimal? GiamGia { get; set; }
+
+
+
+
+
+		[Column] public string TenHinh { get; set; }
+
+
+
+
+
+		[Column] public string MoTa { get; set; }
+
+
+
+
+
+		[Column] public int? LoaiSp { get; set; }
+
+
+
+
+
+		[Column] public int? HangSx { get; set; }
+
+
+
+
+
+		[Column] public string TenLoaiSanPham { get; set; }
+
+
+
+
+
+		[Column] public string TenHangSanXuat { get; set; }
 
 
 
