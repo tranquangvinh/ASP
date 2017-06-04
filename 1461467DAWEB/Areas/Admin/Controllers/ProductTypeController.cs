@@ -41,23 +41,18 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/ProductType/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var resutlDetailsProductType = Models.ProductType.GetProductType(id);
+            return View(resutlDetailsProductType);
         }
 
         // POST: Admin/ProductType/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(LoaiSanPham lsp)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+             
+            Models.ProductType.UpdateProductType(lsp);
+            return RedirectToAction("Create");
+            
         }
 
         // GET: Admin/ProductType/Delete/5

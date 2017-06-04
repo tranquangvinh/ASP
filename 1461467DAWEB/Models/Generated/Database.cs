@@ -557,7 +557,7 @@ namespace ShopConnection
 
 
 
-	[PrimaryKey("LoaiSanPham")]
+	[PrimaryKey("MaLoaiSanPham")]
 
 
 
@@ -569,7 +569,7 @@ namespace ShopConnection
 
 
 
-		[Column("LoaiSanPham")] public int _LoaiSanPham { get; set; }
+		[Column] public int MaLoaiSanPham { get; set; }
 
 
 

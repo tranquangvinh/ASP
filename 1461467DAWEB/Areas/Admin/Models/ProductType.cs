@@ -29,7 +29,7 @@ namespace _1461467DAWEB.Areas.Admin.Models
         {
             using (var db = new ShopConnectionDB())
             {
-                db.Update<ProductType>("SET TenLoaiSanPham=@0 WHERE MaLoaiSanPham=@1", lsp._LoaiSanPham, lsp.TenLoaiSanPham);
+                db.Update<LoaiSanPham>("SET TenLoaiSanPham=@0 WHERE MaLoaiSanPham=@1", lsp.TenLoaiSanPham, lsp.MaLoaiSanPham);
             }
         }
 

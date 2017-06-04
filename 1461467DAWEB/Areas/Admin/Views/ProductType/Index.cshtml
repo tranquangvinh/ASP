@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<ShopConnection.LoaiSanPham>*@ 
+﻿@model IEnumerable<ShopConnection.LoaiSanPham>
 
 <div class="panel-body">
     <!-- Begin FooTable Hiding Columns -->
@@ -15,12 +15,13 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item._LoaiSanPham</td>
+                    <td>@item.MaLoaiSanPham</td>
                     <td>@item.TenLoaiSanPham</td>
-                    <td><a href="@Url.Action("Edit", "ProductType")">Sửa</a></td>
-                    <td><a href="@Url.Action("Delete", "ProductType")">Xóa</a></td>
+                    <td><a href="@Url.Action("Edit", "ProductType", new { id = item.MaLoaiSanPham })">Sửa</a></td>
+                    <td><a href="@Url.Action("Delete", "ProductType",  new { id = item.MaLoaiSanPham })">Xóa</a></td>
                 </tr>
             }
+            
         </tbody>
     </table>
     <!-- End FooTable Hiding Columns -->
