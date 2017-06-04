@@ -137,6 +137,266 @@ namespace ShopConnection
 
     
 
+	[TableName("dbo.__MigrationHistory")]
+
+
+
+	[PrimaryKey("MigrationId", AutoIncrement=false)]
+
+
+	[ExplicitColumns]
+
+    public partial class __MigrationHistory : ShopConnectionDB.Record<__MigrationHistory>  
+    {
+
+
+
+		[Column] public string MigrationId { get; set; }
+
+
+
+
+
+		[Column] public string ContextKey { get; set; }
+
+
+
+
+
+		[Column] public byte[] Model { get; set; }
+
+
+
+
+
+		[Column] public string ProductVersion { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.AspNetRoles")]
+
+
+
+	[PrimaryKey("Id", AutoIncrement=false)]
+
+
+	[ExplicitColumns]
+
+    public partial class AspNetRole : ShopConnectionDB.Record<AspNetRole>  
+    {
+
+
+
+		[Column] public string Id { get; set; }
+
+
+
+
+
+		[Column] public string Name { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.AspNetUserClaims")]
+
+
+
+	[PrimaryKey("Id")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class AspNetUserClaim : ShopConnectionDB.Record<AspNetUserClaim>  
+    {
+
+
+
+		[Column] public int Id { get; set; }
+
+
+
+
+
+		[Column] public string UserId { get; set; }
+
+
+
+
+
+		[Column] public string ClaimType { get; set; }
+
+
+
+
+
+		[Column] public string ClaimValue { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.AspNetUserLogins")]
+
+
+
+	[PrimaryKey("LoginProvider", AutoIncrement=false)]
+
+
+	[ExplicitColumns]
+
+    public partial class AspNetUserLogin : ShopConnectionDB.Record<AspNetUserLogin>  
+    {
+
+
+
+		[Column] public string LoginProvider { get; set; }
+
+
+
+
+
+		[Column] public string ProviderKey { get; set; }
+
+
+
+
+
+		[Column] public string UserId { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.AspNetUserRoles")]
+
+
+
+	[PrimaryKey("UserId", AutoIncrement=false)]
+
+
+	[ExplicitColumns]
+
+    public partial class AspNetUserRole : ShopConnectionDB.Record<AspNetUserRole>  
+    {
+
+
+
+		[Column] public string UserId { get; set; }
+
+
+
+
+
+		[Column] public string RoleId { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.AspNetUsers")]
+
+
+
+	[PrimaryKey("Id", AutoIncrement=false)]
+
+
+	[ExplicitColumns]
+
+    public partial class AspNetUser : ShopConnectionDB.Record<AspNetUser>  
+    {
+
+
+
+		[Column] public string Id { get; set; }
+
+
+
+
+
+		[Column] public string Email { get; set; }
+
+
+
+
+
+		[Column] public bool EmailConfirmed { get; set; }
+
+
+
+
+
+		[Column] public string PasswordHash { get; set; }
+
+
+
+
+
+		[Column] public string SecurityStamp { get; set; }
+
+
+
+
+
+		[Column] public string PhoneNumber { get; set; }
+
+
+
+
+
+		[Column] public bool PhoneNumberConfirmed { get; set; }
+
+
+
+
+
+		[Column] public bool TwoFactorEnabled { get; set; }
+
+
+
+
+
+		[Column] public DateTime? LockoutEndDateUtc { get; set; }
+
+
+
+
+
+		[Column] public bool LockoutEnabled { get; set; }
+
+
+
+
+
+		[Column] public int AccessFailedCount { get; set; }
+
+
+
+
+
+		[Column] public string UserName { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.BinhLuanSanPham")]
 
 
