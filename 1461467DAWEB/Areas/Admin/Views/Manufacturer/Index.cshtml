@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ShopConnection.HangSanXuat>
+
+<div class="panel-body">
+    <!-- Begin FooTable Hiding Columns -->
+    <table id="hiding-columns-example-1" class="table" data-expand-first="true">
+        <thead>
+            <tr>
+                <th data-visible="false">Mã Hãng</th>
+                <th>Tên Hãng Sản Xuất</th>
+                <th>Sửa</th>
+                <th data-breakpoints="xs">Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaHangSanXuat</td>
+                    <td>@item.TenHangSanXuat</td>
+                    <td><a href="@Url.Action("Edit", "Manufacturer", new { id = item.MaHangSanXuat })">Sửa</a></td>
+                    <td><a href="@Url.Action("Delete", "Manufacturer",  new { id = item.MaHangSanXuat })">Xóa</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <!-- End FooTable Hiding Columns -->
+</div>

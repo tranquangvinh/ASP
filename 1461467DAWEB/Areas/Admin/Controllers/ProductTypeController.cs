@@ -28,7 +28,6 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         {
             try
             {
-
                 _1461467DAWEB.Areas.Admin.Models.ProductType.insertProductType(lsp);
                 return RedirectToAction("Index");
             }
