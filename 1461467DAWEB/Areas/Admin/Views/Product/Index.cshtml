@@ -46,7 +46,7 @@
                 if (i == Model.CurrentPage)
                 {
                     <li class="paginate_button active">
-                        <a href="@Url.Action("Index", "Product", new { Page = i })" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">1</a>
+                        <a href="@Url.Action("Index", "Product", new { Page = i })" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">@i</a>
                     </li>
                 }
                 else

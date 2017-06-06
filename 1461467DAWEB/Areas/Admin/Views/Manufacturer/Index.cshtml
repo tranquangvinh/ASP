@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShopConnection.HangSanXuat>
+﻿@model PetaPoco.Page<ShopConnection.HangSanXuat>
 
 
 <h2>Danh sách  <small>hãng sản xuất</small></h2>
@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Items)
             {
                 <tr>
                     <td>@item.MaHangSanXuat</td>
@@ -27,4 +27,37 @@
         </tbody>
     </table>
     <!-- End FooTable Hiding Columns -->
+    <div class="dataTables_paginate paging_simple_numbers" id="datatable-buttons_paginate">
+        <ul class="pagination">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="paginate_button previous disabled" id="datatable-buttons_previous">
+                    <a href="@Url.Action("Index", "Manufacturer", new { Page = Model.CurrentPage -1 })" aria-controls="datatable-buttons" data-dt-idx="0" tabindex="0">Previous</a>
+                </li>
+            }
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                if (i == Model.CurrentPage)
+                {
+                    <li class="paginate_button active">
+                        <a href="@Url.Action("Index", "Manufacturer", new { Page = i })" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">@i</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="paginate_button">
+                        <a href="@Url.Action("Index", "Manufacturer", new { Page = i })" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">@i</a>
+                    </li>
+                }
+
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="paginate_button next" id="datatable-buttons_next">
+                    <a href="@Url.Action("Index", "Manufacturer", new { Page = Model.CurrentPage + 1 })" aria-controls="datatable-buttons" data-dt-idx="7" tabindex="0">Next</a>
+                </li>
+            }
+
+        </ul>
+    </div>
 </div>
