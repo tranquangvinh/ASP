@@ -16,12 +16,7 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
             return View(resultProduct);
         }
 
-        // GET: Admin/Product/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+       
         // GET: Admin/Product/Create
         public ActionResult Create()
         {
@@ -57,39 +52,49 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/Product/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(Models.Product.GetProduct(id));
+            ViewBag.Manufacturer = Models.Manufacturer.ListManufacturer();
+            ViewBag.ProductType = Models.ProductType.ListProductType();
+            var ProductDetails = Models.Product.GetProduct(id);
+            return View(ProductDetails);
         }
 
         // POST: Admin/Product/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Edit(SanPham sp)
         {
-            try
+            string pathValue = Server.MapPath("~/");
+
+            var hpt = HttpContext.Request.Files[0];
+            if (hpt.FileName == "")
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                Models.Product.UpdateProduct(sp, 0);
             }
-            catch
+            else
             {
-                return View();
+                if (HttpContext.Request.Files.Count > 0)
+                {
+                    if (hpt.ContentLength > 0)
+                    {
+                        string temp = hpt.FileName;
+                        string RDString = Guid.NewGuid().ToString();
+                        string fullNameImage = "upload/img/" + RDString + temp;
+                        hpt.SaveAs(pathValue + fullNameImage);
+                        sp.TenHinh = fullNameImage;
+
+
+                    }
+                }
+                Models.Product.UpdateProduct(sp, 1);
             }
-        }
 
-        // GET: Admin/Product/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            return RedirectToAction("Index");
         }
-
-        // POST: Admin/Product/Delete/5
-        [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
 
+                Models.Product.DeleteProduct(id);
                 return RedirectToAction("Index");
             }
             catch
