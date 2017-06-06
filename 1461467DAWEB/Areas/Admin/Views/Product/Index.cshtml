@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ShopConnection.View_lsp_hsx> 
+﻿@model PetaPoco.Page<ShopConnection.View_lsp_hsx> 
 
 <h2>Danh sách <small>Sản Phẩm</small></h2>
 <div class="panel-body">
@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model.Items)
             {
                 <tr>
                     <td>@item.MaSanPham</td>
@@ -35,30 +35,37 @@
     <!-- End FooTable Hiding Columns -->
     <div class="dataTables_paginate paging_simple_numbers" id="datatable-buttons_paginate">
         <ul class="pagination">
-            <li class="paginate_button previous disabled" id="datatable-buttons_previous">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="0" tabindex="0">Previous</a>
-            </li>
-            <li class="paginate_button active">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">1</a>
-            </li>
-            <li class="paginate_button ">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="2" tabindex="0">2</a>
-            </li>
-            <li class="paginate_button ">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="3" tabindex="0">3</a>
-            </li>
-            <li class="paginate_button ">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="4" tabindex="0">4</a>
-            </li>
-            <li class="paginate_button ">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="5" tabindex="0">5</a>
-            </li>
-            <li class="paginate_button ">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="6" tabindex="0">6</a>
-            </li>
-            <li class="paginate_button next" id="datatable-buttons_next">
-                <a href="#" aria-controls="datatable-buttons" data-dt-idx="7" tabindex="0">Next</a>
-            </li>
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="paginate_button previous disabled" id="datatable-buttons_previous">
+                    <a href="@Url.Action("Index", "Product", new { Page = Model.CurrentPage -1 })" aria-controls="datatable-buttons" data-dt-idx="0" tabindex="0">Previous</a>
+                </li>
+            }
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                if (i == Model.CurrentPage)
+                {
+                    <li class="paginate_button active">
+                        <a href="@Url.Action("Index", "Product", new { Page = i })" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">1</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="paginate_button">
+                        <a href="@Url.Action("Index", "Product", new { Page = i })" aria-controls="datatable-buttons" data-dt-idx="1" tabindex="0">@i</a>
+                    </li>
+                }
+
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="paginate_button next" id="datatable-buttons_next">
+                    <a href="@Url.Action("Index", "Product", new { Page = Model.CurrentPage + 1 })" aria-controls="datatable-buttons" data-dt-idx="7" tabindex="0">Next</a>
+                </li>
+            }
+
+
+           
         </ul>
     </div>
 </div>
