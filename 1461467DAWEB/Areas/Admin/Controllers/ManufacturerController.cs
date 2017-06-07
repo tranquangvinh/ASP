@@ -9,9 +9,9 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
     public class ManufacturerController : Controller
     {
         // GET: Admin/Manufacturer
-        public ActionResult Index()
+        public ActionResult Index(int Page = 1)
         {
-            var resultManufacturer = Models.Manufacturer.ListManufacturer();
+            var resultManufacturer = Models.Manufacturer.ByListManufacturer(Page , 1);
             return View(resultManufacturer);
         }
 

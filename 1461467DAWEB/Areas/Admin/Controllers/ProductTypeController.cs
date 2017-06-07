@@ -10,9 +10,9 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
     public class ProductTypeController : Controller
     {
         // GET: Admin/ProductType
-        public ActionResult Index()
+        public ActionResult Index(int Page = 1)
         {
-            var resultProductType =  Models.ProductType.ListProductType();
+            var resultProductType =  Models.ProductType.ByListProductType(Page, 1);
             return View(resultProductType);
         }
 
