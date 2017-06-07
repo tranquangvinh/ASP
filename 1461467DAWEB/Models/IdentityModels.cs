@@ -16,6 +16,8 @@ namespace _1461467DAWEB.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        public string PhoneNumber { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

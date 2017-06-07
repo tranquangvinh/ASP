@@ -198,9 +198,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManufacturerController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
+    <Compile Include="Areas\Admin\Models\AspNetUsersModel.cs" />
     <Compile Include="Areas\Admin\Models\Manufacturer.cs" />
     <Compile Include="Areas\Admin\Models\Product.cs" />
     <Compile Include="Areas\Admin\Models\ProductType.cs" />
@@ -1027,7 +1029,11 @@
     <Content Include="Areas\Admin\Views\Manufacturer\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Manufacturer\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\ProductType\SearchLSP.cshtml" />
+=======
+    <Content Include="Areas\Admin\Views\AdminAccount\Index.cshtml" />
+>>>>>>> 4ad82d7c3a85da93cf6c1de60cd0c43280880302
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
