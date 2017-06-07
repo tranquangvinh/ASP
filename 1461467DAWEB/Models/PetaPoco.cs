@@ -982,7 +982,7 @@ namespace PetaPoco
                     catch (Exception x)
                     {
                         if (OnException(x))
-                            throw;
+                          throw;
                         yield break;
                     }
                     var factory = pd.GetFactory(cmd.CommandText, _sharedConnection.ConnectionString, 0, r.FieldCount, r, _defaultMapper) as Func<IDataReader, T>;

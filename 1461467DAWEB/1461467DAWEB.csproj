@@ -253,6 +253,7 @@
     <Content Include="css\color-red2.css" />
     <Content Include="css\color-yellow.css" />
     <Content Include="css\color-yellow2.css" />
+    <Content Include="css\cssform\form.css" />
     <Content Include="css\custom_style.css" />
     <Content Include="css\libs\AjaxLoader.gif" />
     <Content Include="css\libs\animate.css" />
@@ -1026,6 +1027,7 @@
     <Content Include="Areas\Admin\Views\Manufacturer\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Manufacturer\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductType\SearchLSP.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

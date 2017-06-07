@@ -12,7 +12,7 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/ProductType
         public ActionResult Index(int Page = 1)
         {
-            var resultProductType =  Models.ProductType.ByListProductType(Page, 1);
+            var resultProductType =  Models.ProductType.ByListProductType(Page, 3);
             return View(resultProductType);
         }
 
@@ -35,6 +35,11 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult SearchLSP(string key)
+        {
+            var resultSearchProductType = Models.ProductType.SearchListProductType(key);
+            return View(resultSearchProductType);
         }
 
         // GET: Admin/ProductType/Edit/5
