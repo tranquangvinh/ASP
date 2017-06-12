@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using _1461467DAWEB.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace _1461467DAWEB.Controllers
 {
@@ -150,11 +151,16 @@ namespace _1461467DAWEB.Controllers
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber=model.Phone};
-                var result = await UserManager.CreateAsync(user, model.Password);
+            { 
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber=model.PhoneNumber};
+                var result = UserManager.Create(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    ApplicationDbContext context = new ApplicationDbContext();
+                    var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                    var result1 = UserManager.AddToRole(user.Id, "Employee");
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

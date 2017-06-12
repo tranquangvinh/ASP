@@ -1,7 +1,12 @@
-﻿ @model IEnumerable<ShopConnection.AspNetUser>
+﻿ @model IEnumerable<ShopConnection.View_ChucVu>
 
 <h2>Danh sách <small>tài khoản</small></h2>
 <div class="panel-body">
+    @if (Session["Mes"] != null)
+    {
+        <div class="bg-danger">@Session["Mes"]</div>
+        Session.Remove("Mes");
+    }
     <!-- Begin FooTable Hiding Columns -->
     <table id="hiding-columns-example-1" class="table" data-expand-first="true">
         <thead>
@@ -9,6 +14,7 @@
                 <th>Email</th>
                 <th>UserName</th>
                 <th>PhoneNumber</th>
+                <th>Chức vụ</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
@@ -20,8 +26,9 @@
                     <td>@item.Email</td>
                     <td>@item.UserName</td>
                     <td>@item.PhoneNumber</td>
-                    <td><a href="@Url.Action("Edit", "AdminAccount", new { id = item.Id })">Sửa</a></td>
-                    <td><a href="@Url.Action("Delete", "AdminAccount", new { id = item.Id })">Xóa</a></td>
+                    <td>@item.Name</td>
+                    <td class="text-edit"><a href="@Url.Action("Edit", "AdminAccount", new { id = item.Id })">Sửa</a></td>
+                    <td class="text-delete"><a href="@Url.Action("Delete", "AdminAccount", new { id = item.Id })">Xóa</a></td>
                 </tr>
             }
         </tbody>

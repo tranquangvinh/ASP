@@ -1,0 +1,59 @@
+﻿ @model _1461467DAWEB.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Edit", "AdminAccount", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        foreach (var item in ViewBag.ChucVu_Admin_2)
+                        {
+                            <h4>Sửa thông tin tài khoản</h4>
+                            <hr />
+                            <input type="hidden" name="IdUser" value="@item.Id" />
+                            @Html.ValidationSummary("", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.Email, new { @Value =  item.Email, @class = "form-control"})
+                                </div>
+                            </div>
+                            @*<div class="form-group">
+                                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.UserName, new { @Value = item.UserName, @class = "form-control" })
+                                </div>
+                            </div>*@
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @Value = item.PhoneNumber,  @class = "form-control"})
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Chức vụ</label>
+                                <div class="col-md-10">
+                                    <select class="form-control" name="ChucVu">
+                                         <option value="Admin">Admin</option>
+                                         <option value="Employee" selected="selected">Employee</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-success" value="Edit" />
+                                </div>
+                            </div>
+                        }
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

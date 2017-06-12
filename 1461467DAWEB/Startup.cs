@@ -23,36 +23,36 @@ namespace _1461467DAWEB
 
 
             // In Startup iam creating first Admin Role and creating a default Admin User    
-            if (!roleManager.RoleExists("Admin"))
+            if (!roleManager.RoleExists("Manager"))
             {
 
                 // first we create Admin rool   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Admin";
+                role.Name = "Manager";
                 roleManager.Create(role);
 
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new ApplicationUser();
-                user.UserName = "tranquangvinh5899@gmail.com";
                 user.Email = "tranquangvinh5899@gmail.com";
 
                 string userPWD = "Vinh@123";
-
+                user.PhoneNumber = "0962821047";
+                user.UserName = "tranquangvinh5899@gmail.com";
                 var chkUser = UserManager.Create(user, userPWD);
 
                 //Add default User to Role Admin   
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "Admin");
+                    var result1 = UserManager.AddToRole(user.Id, "Manager");
 
                 }
             }
             // creating Creating Manager role    
-            if (!roleManager.RoleExists("Manager"))
+            if (!roleManager.RoleExists("Admin"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "Manager";
+                role.Name = "Admin";
                 roleManager.Create(role);
 
             }

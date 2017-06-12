@@ -81,7 +81,9 @@ namespace _1461467DAWEB.Models
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Phone Number")]
-        public string Phone { get; set; }
+        public string PhoneNumber { get; set; }
+
+       
     }
 
     public class ResetPasswordViewModel

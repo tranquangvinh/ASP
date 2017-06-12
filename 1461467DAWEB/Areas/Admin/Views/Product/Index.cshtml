@@ -26,8 +26,8 @@
                     <td style="width: 80px; height: 80px; overflow: hidden;"><img style="display: block; max-width: 100%;" src="~/@item.TenHinh" alt=" " /></td>
                     <td>@item.TenLoaiSanPham</td>
                     <td>@item.TenHangSanXuat</td>
-                    <td><a href="@Url.Action("Edit", "Product", new { id = item.MaSanPham})">Sửa</a></td>
-                    <td><a href="@Url.Action("Delete", "Product", new { id = item.MaSanPham})">Xóa</a></td>
+                    <td class="text-edit"><a href="@Url.Action("Edit", "Product", new { id = item.MaSanPham})">Sửa</a></td>
+                    <td class="text-delete"><a href="@Url.Action("Delete", "Product", new { id = item.MaSanPham})">Xóa</a></td>
                 </tr>
             }
         </tbody>

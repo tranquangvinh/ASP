@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace _1461467DAWEB.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Manager, Admin")]
     public class ProductTypeController : Controller
     {
         // GET: Admin/ProductType

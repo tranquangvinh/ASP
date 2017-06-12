@@ -1,4 +1,4 @@
-﻿@model PetaPoco.Page<ShopConnection.HangSanXuat>
+﻿    @model PetaPoco.Page<ShopConnection.HangSanXuat>
 
 
 <h2>Danh sách  <small>hãng sản xuất</small></h2>
@@ -19,8 +19,8 @@
                 <tr>
                     <td>@item.MaHangSanXuat</td>
                     <td>@item.TenHangSanXuat</td>
-                    <td><a href="@Url.Action("Edit", "Manufacturer", new { id = item.MaHangSanXuat })">Sửa</a></td>
-                    <td><a href="@Url.Action("Delete", "Manufacturer",  new { id = item.MaHangSanXuat })">Xóa</a></td>
+                    <td class="text-edit"><a href="@Url.Action("Edit", "Manufacturer", new { id = item.MaHangSanXuat })">Sửa</a></td>
+                    <td class="text-delete"><a href="@Url.Action("Delete", "Manufacturer",  new { id = item.MaHangSanXuat })">Xóa</a></td>
                 </tr>
             }
 

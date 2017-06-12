@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using ShopConnection;
 namespace _1461467DAWEB.Areas.Admin.Controllers
 {
-    //[Authorize(Roles ="Admin") ]
+    [Authorize(Roles = "Manager, Admin")]
     public class ProductController : Controller
     {
         // GET: Admin/Product
