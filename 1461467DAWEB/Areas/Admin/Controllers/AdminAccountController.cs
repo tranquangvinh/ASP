@@ -20,9 +20,9 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         // GET: Admin/Account
-        public ActionResult Index()
+        public ActionResult Index(int Page = 1)
         {
-            var resultListAcount = Models.AspNetUsersModel.ListAccount();
+            var resultListAcount = Models.AspNetUsersModel.ListAccount(Page, 1);
             return View(resultListAcount);
         }
 
