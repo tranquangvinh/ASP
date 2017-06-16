@@ -31,5 +31,13 @@ namespace _1461467DAWEB.Areas.Admin.Models
             Role.RoleId = RolesID;
             db.Update(Role);
         }
+        public static void UpdatePassword(string id, string pass)
+        {
+            var db = new ShopConnectionDB();
+            AspNetUser user = new AspNetUser();
+            user.Id = id;
+            user.PasswordHash = pass;
+            db.Update(user);
+        }
     }
 }

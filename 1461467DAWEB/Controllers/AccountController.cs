@@ -10,6 +10,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using _1461467DAWEB.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MVCEmail.Models;
+using System.Net;
+using System.Net.Mail;
 
 namespace _1461467DAWEB.Controllers
 {
@@ -204,27 +207,46 @@ namespace _1461467DAWEB.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        public async Task<ActionResult> ForgotPassword(EmailFormModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
-                {
-                    // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                var user = await UserManager.FindByNameAsync(model.FromEmail);
+                if (user == null){
+                    return RedirectToAction("");
                 }
+                else{
+                    // tạo password radom và đổi pass admin;
+                    String password = Guid.NewGuid().ToString("d").Substring(1, 15);
+                    password = password + "A";
+                    UserManager.RemovePassword(user.Id);
+                    String temp = "Mật khẩu mới của bạn là: " + password;
+                    var result = UserManager.AddPassword(user.Id, password);
+                    var body = "<p>Email From: {0} ({1})</p><p>Message:</p><p>{2}</p>";
+                    var message = new MailMessage();
+                    message.To.Add(new MailAddress(model.FromEmail));  // replace with valid value 
+                    message.From = new MailAddress("tranquangvinh5899@gmail.com");  // replace with valid value
+                    message.Subject = "Shop VinhTran Kính Chào " + model.FromName;
+                    message.Body = string.Format(body, "Trần Quang Vinh", "tranquangvinh5899@gmail.com", temp );
+                    message.IsBodyHtml = true;
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                    using (var smtp = new SmtpClient())
+                    {
+                        var credential = new NetworkCredential
+                        {
+                            UserName = "tranquangvinh5899@gmail.com",  // replace with valid value
+                            Password = "Talachum3d"  // replace with valid value
+                        };
+                        smtp.Credentials = credential;
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.Port = 587;
+                        smtp.EnableSsl = true;
+                        await smtp.SendMailAsync(message);
+                        return RedirectToAction("ForgotPasswordConfirmation");
+                    }
+                }
             }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+            return RedirectToAction("ForgotPasswordConfirmation");
         }
 
         //
@@ -238,9 +260,9 @@ namespace _1461467DAWEB.Controllers
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
+        public ActionResult ResetPassword()
         {
-            return code == null ? View("Error") : View();
+            return View();
         }
 
         //
@@ -248,24 +270,38 @@ namespace _1461467DAWEB.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model, String MatKhauCu )
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            UserManager<IdentityUser> userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
             var user = await UserManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                Session["Messenger"] = "lỗi vui lòng kiểm tra lại !!";
+                return RedirectToAction("ResetPassword");
             }
-            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
-            if (result.Succeeded)
+            else
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                if (!UserManager.CheckPassword(user, MatKhauCu))
+                {
+                    Session["Messenger"] = "lỗi vui lòng kiểm tra lại !!";
+                    return RedirectToAction("ResetPassword");
+                }
+                if (model.Password != model.ConfirmPassword)
+                {
+                    Session["Messenger"] = "lỗi vui lòng kiểm tra lại !!";
+                    return RedirectToAction("ResetPassword");
+                }
+
+                UserManager.RemovePassword(user.Id);
+
+                var result = UserManager.AddPassword(user.Id, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("ResetPasswordConfirmation");
+                }
+                AddErrors(result);
             }
-            AddErrors(result);
             return View();
         }
 

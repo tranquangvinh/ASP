@@ -8,7 +8,9 @@
 .bg-danger{
     padding: 6px 6px; 
 }
-.text-edit{
+.bg-success {
+    padding: 6px 6px;
+}.text-edit {
     font-weight: bold;
 }
 .text-delete{
@@ -19,4 +21,7 @@
 }
 .text-delete a {
     color: red;
+}
+.top_nav .accountAdmin .navbar-right {
+    width: 100%;
 }

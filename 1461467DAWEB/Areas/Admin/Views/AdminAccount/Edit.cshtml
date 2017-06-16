@@ -22,13 +22,7 @@
                                     @Html.TextBoxFor(m => m.Email, new { @Value =  item.Email, @class = "form-control"})
                                 </div>
                             </div>
-                            @*<div class="form-group">
-                                @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                                <div class="col-md-10">
-                                    @Html.TextBoxFor(m => m.UserName, new { @Value = item.UserName, @class = "form-control" })
-                                </div>
-                            </div>*@
-
+                          
                             <div class="form-group">
                                 @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
                                 <div class="col-md-10">
@@ -39,9 +33,22 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Chức vụ</label>
                                 <div class="col-md-10">
-                                    <select class="form-control" name="ChucVu">
-                                         <option value="Admin">Admin</option>
-                                    </select>
+                                    @if (Session["ChucVu"].ToString() == "Manager")
+                                    {
+                                        <select class="form-control" name="ChucVu">
+                                            <option value="Manager">Manager</option>
+                                            <option value="Admin">Admin</option>
+                                            <option value="Employee">Employee</option>
+                                        </select>
+                                    }
+                                    else if (Session["ChucVu"].ToString() == "Admin")
+                                    {
+                                        <select class="form-control" name="ChucVu">
+                                            <option value="Admin">Admin</option>
+                                            <option value="Employee">Employee</option>
+                                        </select>
+                                    }
+                                  
                                 </div>
                             </div>
                             <div class="form-group">

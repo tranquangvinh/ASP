@@ -56,5 +56,24 @@ namespace _1461467DAWEB.Areas.Admin.Models
             {
             }
         }
+        public static void insertImg(String tenHinh, int IDSp) {
+                var a = new DanhSachHinh();
+                a.TenHinh = tenHinh;
+                a.IdHinh = IDSp;
+                a.Insert();
+        }
+
+        public static IEnumerable<DanhSachHinh> GetListImg(int id)
+        {
+            var db = new ShopConnectionDB();
+            return db.Query<DanhSachHinh>("select * from DanhSachHinh where IdHinh=@0", id);
+        }
+        public static void updateListImage(int id, string tenHinh)
+        {
+            using (var db = new ShopConnectionDB())
+            {
+                db.Update<DanhSachHinh>("SET TenHinh=@0  WHERE MaHinh=@1", tenHinh, id);
+            }
+        }
     }
 }
