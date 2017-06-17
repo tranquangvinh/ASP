@@ -503,12 +503,6 @@ namespace ShopConnection
 
 
 
-		[Column] public int? MaSanPham { get; set; }
-
-
-
-
-
 		[Column] public int? MaTaiKhoan { get; set; }
 
 
@@ -516,6 +510,12 @@ namespace ShopConnection
 
 
 		[Column] public int? SoLuong { get; set; }
+
+
+
+
+
+		[Column] public decimal? TongTien { get; set; }
 
 
 

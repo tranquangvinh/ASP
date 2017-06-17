@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using _1461467DAWEB.Models
+<div id="content">
+    <div class="content-page woocommerce">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @using (Html.BeginForm("ThanhToanTien", "Cart", FormMethod.Post))
+                    {
+                        <h2 class="title-shop-page">checkout</h2>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="check-billing">
+                                    <h2 class="title18">Billing Details</h2>
+                                    <p>
+                                        <input type="text" name="Ten" placeholder="Họ và Tên *" />
+                                    </p>
+                                    <p>
+                                        <input type="text" name="Email" placeholder="Email *" />
+                                    </p>
+                                    <p>
+                                        <input type="text" name="Phone" placeholder="Phone *" />
+                                    </p>
+                                    <p><input type="text" name="DiaChi" placeholder="Địa chỉ *" /></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="order_review_heading">Your order</h3>
+                    <div class="woocommerce-checkout-review-order" id="order_review">
+                        <div class="table-responsive">
+                            <table class="shop_table woocommerce-checkout-review-order-table">
+                                <thead>
+                                    <tr>
+                                        <th class="product-name">Tên Sản Phẩm</th>
+                                        <th class="product-total">Giá</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Session["Cart"] != null)
+                                    {
+                                        foreach (Item item in (List<Item>)Session["Cart"])
+                                        {
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                   @item.GetSP().TenSanPham&nbsp; <span class="product-quantity">× @item.GetSL()</span>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span class="amount">@(item.GetSL() * item.GetSP().Gia)</span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr class="cart-subtotal">
+                                        <th>Tổng tiền</th>
+                                        <td><strong class="amount">@ViewBag.TongTien</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="woocommerce-checkout-payment" id="payment">
+                            <div class="form-row place-order">
+                                <input type="submit" data-value="Place order" value="Thanh Toán" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    }
+            </div>
+        </div>
+    </div>
+    <!-- End Content Page -->
+</div>

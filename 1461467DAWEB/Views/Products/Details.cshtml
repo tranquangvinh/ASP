@@ -78,16 +78,17 @@
                                             <li><a href="#">2xl</a></li>
                                         </ul>
                                     </div>
-                                    <div class="detail-extralink">
-                                        <div class="detail-qty border radius">
-                                            <a href="#" class="qty-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                            <span class="qty-val">1</span>
-                                            <a href="#" class="qty-up"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
+                                    @using (Html.BeginForm("Create", "Cart", FormMethod.Post, new { id=Model.MaSanPham })) {
+                                        <input type="hidden" name="id" value="@Model.MaSanPham" />
+                                        <div class="detail-extralink">
+                                            <div class="detail-qty radius">
+                                                 <input value="1" name="sl" class="form-control" width="50" />
+                                            </div>
+                                            <div class="product-extra-link2">
+                                                <button type="submit">Add to Cart</button>
+                                            </div>
                                         </div>
-                                        <div class="product-extra-link2">
-                                            <a class="addcart-link" href="#">Add to Cart</a>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                                 <!-- Detail Info -->
                             </div>

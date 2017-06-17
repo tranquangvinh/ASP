@@ -3940,7 +3940,6 @@ li.menu-item-has-children:hover > .sub-menu {
 }
 .detail-qty {
   max-width: 120px;
-  padding: 9px 20px;
   position: relative;
   width: 100%;
 }
@@ -15057,7 +15056,7 @@ a.protect-icon:hover {
   border: 1px solid #e5e5e5;
   border-collapse: collapse;
   border-radius: 0;
-  margin: 0 0 50px;
+  margin: 0 0 25px;
   text-align: left;
   width: 100%;
 }
@@ -15152,8 +15151,7 @@ a.protect-icon:hover {
   max-width: 160px;
 }
 .form-row.place-order {
-  border: 1px solid #e5e5e5;
-  padding: 20px;
+    margin-top: 0px;
   text-align: right;
 }
 .form-row.place-order input[type="submit"] {
@@ -15260,7 +15258,6 @@ a.protect-icon:hover {
   padding: 0;
 }
 .form-my-account {
-  max-width: 500px;
   width: 100%;
 }
 .form-my-account .title18 {
@@ -15268,7 +15265,6 @@ a.protect-icon:hover {
 }
 .form-my-account > p {
   margin-bottom: 20px;
-  max-width: 500px;
   position: relative;
 }
 .form-my-account .box-col2 input[type="text"]:first-child {
@@ -15295,7 +15291,6 @@ a.protect-icon:hover {
 }
 .form-my-account > p {
   margin-bottom: 20px;
-  max-width: 500px;
   position: relative;
 }
 .form-my-account > p:last-child {
@@ -15337,10 +15332,6 @@ a.protect-icon:hover {
   padding: 10px 15px;
   text-transform: uppercase;
   width: 100%;
-}
-.check-billing {
-  border-right: 1px solid #e5e5e5;
-  margin-right: -15px;
 }
 .form-my-account input[type="checkbox"]:checked + label::before {
   content: "\f00c";

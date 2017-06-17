@@ -9,7 +9,7 @@
         <div class="container">
             <div class="cart-content-page">
                 <h2 class="title-shop-page">my cart</h2>
-                <form method="post">
+               @using (Html.BeginForm("Update", "Cart", FormMethod.Post)) { 
                     <div class="table-responsive">
                         <table cellspacing="0" class="shop_table cart table">
                             <thead>
@@ -18,40 +18,62 @@
                                     <th class="product-price">Price</th>
                                     <th class="product-quantity">Quantity</th>
                                     <th class="product-subtotal">Total</th>
+                                    <th class="product-subtotal">Delete</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach (Item item in (List<Item>)Session["Cart"])
-                                {
-                                    <tr class="cart_item">
-                                        <td class="product-name">
-                                            <a href="#">@item.GetSP().TenSanPham</a>
-                                        </td>
-                                        <td class="product-price">
-                                            <span class="amount">@item.GetSP().Gia</span>
-                                        </td>
-                                        <td class="product-quantity">
-                                            <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i class="fa fa-caret-down" aria-hidden="true"></i></a>
-                                                <input name="Quantity[]" value="@item.GetSL()" class="qty-val" />
-                                                <a href="#" class="qty-up"><i class="fa fa-caret-up" aria-hidden="true"></i></a>
-                                            </div>
-                                        </td>
-                                        <td class="product-subtotal">
-                                            <span class="amount">@(item.GetSL() * item.GetSP().Gia)</span>
+                                @if (Session["Cart"] != null) {
+                                    foreach (Item item in (List<Item>)Session["Cart"])
+                                    {
+                                        <tr class="cart_item">
+                                            <td class="product-name">
+                                                <a href="#">@item.GetSP().TenSanPham</a>
+                                            </td>
+                                            <td class="product-price">
+                                                <span class="amount">@item.GetSP().Gia</span>
+                                            </td>
+                                            <td class="product-quantity">
+                                                <div class="detail-qty radius">
+                                                    <input name="Quantity[]" type="number" value="@item.GetSL()" class="form-control" width="50" />
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal">
+                                                <span class="amount">@(item.GetSL() * item.GetSP().Gia)</span>
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Delete", "Cart", new { id = item.GetSP().MaSanPham })" class="text-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td class="actions" colspan="6">
+                                            <input type="submit" value="Update Cart" name="update_cart" class="button">
                                         </td>
                                     </tr>
-                                }
-                                <tr>
-                                    <td class="actions" colspan="6">
-                                        <input type="submit" value="Update Cart" name="update_cart" class="button">
-                                    </td>
-                                </tr>
+                                    }
                             </tbody>
                         </table>
                     </div>
-                </form>
+                }
+                <div class="cart-collaterals">
+                    <div class="cart_totals ">
+                        <h2>Cart Totals</h2>
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table">
+                                <tbody>
+                                    <tr class="cart-subtotal">
+                                        <th>Tổng tiền</th>
+                                        <td><strong class="amount">@ViewBag.TongTien</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="wc-proceed-to-checkout">
+                            <a class="checkout-button button alt wc-forward" href="@Url.Action("ThanhToan", "Cart")">Proceed to Checkout</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
