@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<ShopConnection.HangSanXuat>
 @{Layout = null;}
+@* Menu hang sản xuất *@
 <ul class="list-category-toggle list-unstyled">
     @foreach (var item in Model) { 
         <li><a href="@Url.Action("SanPhamHSX", "Products", new { id = item.MaHangSanXuat })">@item.TenHangSanXuat</a></li>
