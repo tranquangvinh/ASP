@@ -7,6 +7,6 @@
 <ul class="list-cat-icon">
     @foreach (var item in Model)
     {
-        <li><a href="@Url.Action("Index", "Products", new { id = item.MaLoaiSanPham })"><img alt="" src="~/images/cat-icon/cat3.png"><span>@item.TenLoaiSanPham</span></a></li>
+        <li><a href="@Url.Action("SanPhamLSP", "Products", new { id = item.MaLoaiSanPham })"><img alt="" src="~/images/cat-icon/cat3.png"><span>@item.TenLoaiSanPham</span></a></li>
     }
 </ul>

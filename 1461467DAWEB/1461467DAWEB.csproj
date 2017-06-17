@@ -224,6 +224,7 @@
     </Compile>
     <Compile Include="Models\HangSanXuatBus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ListImg.cs" />
     <Compile Include="Models\LoaiSanPhamBus.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PetaPoco.cs" />
@@ -241,6 +242,9 @@
     <Content Include="build\images\forward_enabled.png" />
     <Content Include="build\images\forward_enabled_hover.png" />
     <Content Include="build\images\loading.gif" />
+    <Content Include="images\pro-adv1.jpg" />
+    <Content Include="images\pro-adv2.jpg" />
+    <Content Include="images\pro-adv3.jpg" />
     <Content Include="build\js\custom.js" />
     <Content Include="build\js\custom.min.js" />
     <Content Include="Content\bootstrap.css" />
@@ -1736,6 +1740,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\SanPhamHSX.cshtml" />
+    <Content Include="Views\Products\SanPhamLSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

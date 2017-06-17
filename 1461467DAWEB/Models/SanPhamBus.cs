@@ -9,10 +9,10 @@ namespace _1461467DAWEB.Models
 {
     public class SanPhamBus
     {
-        public static IEnumerable<SanPham> ListProduct()
+        public static Page<SanPham> ListProduct(int pageNumber, int itemPrePage)
         {
             var db = new ShopConnectionDB();
-            return db.Query<SanPham>("select * from SanPham");
+            return db.Page<SanPham>(pageNumber, itemPrePage, "select * from SanPham");
         }
         public static Page<SanPham> ListProductPage(int id, int pageNumber, int itemPrePage)
         {
@@ -44,10 +44,10 @@ namespace _1461467DAWEB.Models
             var db = new ShopConnectionDB();
             return db.Query<SanPham>("select top 8 * from SanPham ORDER BY SoLuongXem DESC  ");
         }
-        public static IEnumerable<SanPham> ListProductsDetails(int id)
+        public static SanPham ListProductsDetails(int id)
         {
             var db = new ShopConnectionDB();
-            return db.Query<SanPham>("select * from SanPham where MaSanPham = @0", id);
+            return db.SingleOrDefault<SanPham>("select * from SanPham where MaSanPham = @0", id);
         }
         public static IEnumerable<SanPham> ListProductsType(int type)
         {

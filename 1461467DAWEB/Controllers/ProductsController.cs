@@ -10,14 +10,15 @@ namespace _1461467DAWEB.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index(int id, int page = 1)
+        public ActionResult Index(int page = 1)
         {
-            var dssp = SanPhamBus.ListProductPage(id, page, 8);
+            var dssp = SanPhamBus.ListProduct(page, 8);
             return View(dssp);
         }
         public ActionResult Details(int id)
         {
             var ctdssp = SanPhamBus.ListProductsDetails(id);
+            ViewBag.ListImg = ListImg.DanhSachHinhSanPham(id);
             return View(ctdssp);
         }
         public ActionResult Type(int type)
@@ -33,6 +34,11 @@ namespace _1461467DAWEB.Controllers
         public ActionResult SanPhamHSX(int id, int page=1)
         {
             var dssp = SanPhamBus.ListProductPageHSX(id, page, 8);
+            return View(dssp);
+        }
+        public ActionResult SanPhamLSP(int id, int page = 1)
+        {
+            var dssp = SanPhamBus.ListProductPage(id, page, 8);
             return View(dssp);
         }
     }

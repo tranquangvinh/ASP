@@ -16226,4 +16226,16 @@ td.product-info-total .product-info .desc {
 .desc-size-thumb .table-striped > tbody > tr > td {
   padding: 5px 20px;
 }
- 
+
+.product-thumb-link > img {
+    width: 150px !important;
+    display: block;
+    margin: auto;
+}
+.mid{
+    text-align:center;
+}
+.carousel img{
+    width: 42px;
+    display: inline-block;
+}
