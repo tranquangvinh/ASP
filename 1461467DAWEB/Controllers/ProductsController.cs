@@ -19,6 +19,7 @@ namespace _1461467DAWEB.Controllers
         {
             var ctdssp = SanPhamBus.ListProductsDetails(id);
             ViewBag.ListImg = ListImg.DanhSachHinhSanPham(id);
+            ViewBag.SanPhamLienQuan = SanPhamBus.SanPhamLienQuan(id, 4, ctdssp.LoaiSp);
             return View(ctdssp);
         }
         public ActionResult Type(int type)

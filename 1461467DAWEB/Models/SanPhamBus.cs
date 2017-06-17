@@ -59,5 +59,12 @@ namespace _1461467DAWEB.Models
             var db = new ShopConnectionDB();
             return db.Query<SanPham>("select * from SanPham where HangXS = @0", made);
         }
+
+        public static IEnumerable<SanPham> SanPhamLienQuan(int idSP, int limit, int? LSP)
+        {
+            var db = new ShopConnectionDB();
+            String query = "select top " + limit + " * from sanpham where MaSanPham not in (" + idSP + ") and LoaiSp = " + LSP;
+            return db.Query<SanPham>(query);
+        }
     }
 }
