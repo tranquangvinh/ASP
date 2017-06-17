@@ -94,12 +94,28 @@
                         }
 
                         <!-- End Item -->
-                        <!-- End Item -->
                         <div class="pagi-bar bottom">
-                            <a class="current-page" href="#">1</a>
-                            <a href="#">2</a>
-                            <a class="next-page" href="#"><i aria-hidden="true" class="fa fa-caret-right"></i></a>
+                            @if (Model.CurrentPage > 1)
+                            {
+                                <a class="next-page" href="@Url.Action("SanPhamHSX", "Products", new { page = Model.CurrentPage - 1 })"><<</a>
+                            }
+                            @for (int i = 1; i <= Model.TotalPages; i++)
+                            {
+                                if (i == Model.CurrentPage)
+                                {
+                                    <a class="current-page" href="@Url.Action("SanPhamHSX", "Products", new { page = Model.CurrentPage + 1 })">i</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("SanPhamHSX", "Products", new { page = i })">@i</a>
+                                }
+                            }
+                            @if (Model.CurrentPage < Model.TotalPages)
+                            {
+                                <a class="next-page" href="@Url.Action("SanPhamHSX", "Products", new { page = Model.CurrentPage + 1 })">>></a>
+                            }
                         </div>
+
                     </div>
                     <!-- End List Pro color -->
                 </div>
