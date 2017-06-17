@@ -208,6 +208,7 @@
     <Compile Include="Areas\Admin\Models\ProductType.cs" />
     <Compile Include="Areas\Admin\Models\ProductType_Manufacturer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -224,6 +225,7 @@
     </Compile>
     <Compile Include="Models\HangSanXuatBus.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ListImg.cs" />
     <Compile Include="Models\LoaiSanPhamBus.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -1741,6 +1743,7 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\SanPhamHSX.cshtml" />
     <Content Include="Views\Products\SanPhamLSP.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
