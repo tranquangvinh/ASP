@@ -445,6 +445,54 @@ namespace ShopConnection
 
     
 
+	[TableName("dbo.ChiTietDonHang")]
+
+
+
+	[PrimaryKey("idChiTietDonHang")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class ChiTietDonHang : ShopConnectionDB.Record<ChiTietDonHang>  
+    {
+
+
+
+		[Column] public int idChiTietDonHang { get; set; }
+
+
+
+
+
+		[Column] public int? idGioHang { get; set; }
+
+
+
+
+
+		[Column] public int? idMaSanPham { get; set; }
+
+
+
+
+
+		[Column] public int? SoLuong { get; set; }
+
+
+
+
+
+		[Column] public decimal? TongTien { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.DanhSachHinh")]
 
 
@@ -503,13 +551,31 @@ namespace ShopConnection
 
 
 
-		[Column] public int? MaTaiKhoan { get; set; }
+		[Column] public string MaTaiKhoan { get; set; }
 
 
 
 
 
-		[Column] public int? SoLuong { get; set; }
+		[Column] public string TenNguoiMua { get; set; }
+
+
+
+
+
+		[Column] public string DiaChi { get; set; }
+
+
+
+
+
+		[Column] public string Email { get; set; }
+
+
+
+
+
+		[Column] public string Phone { get; set; }
 
 
 

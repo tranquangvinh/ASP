@@ -1,4 +1,5 @@
 ﻿using _1461467DAWEB.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -118,14 +119,43 @@ namespace _1461467DAWEB.Controllers
             var F = HttpContext.Request.Form;
             if (HttpContext.Request.Form.Count > 0)
             {
-                String ten  =  HttpContext.Request.Form["Ten"].ToString();
+                String ten = HttpContext.Request.Form["Ten"].ToString();
                 String Email = HttpContext.Request.Form["Email"].ToString();
                 String Phone = HttpContext.Request.Form["Phone"].ToString();
                 String DiaChi = HttpContext.Request.Form["DiaChi"].ToString();
-               
-               // Cart.InserCart();
+                if (ten == "" || Email == "" || Phone == "" || DiaChi == "")
+                {
+                    Session["Mes"] = "Vui lòng kiểm tra lại thông tin trước khi thanh toán !!";
+                    return RedirectToAction("ThanhToan");
+                }
+                Decimal  tt = 0;
+                int sl = 0;
+                Decimal gia = 0;
+                if (Session["Cart"] != null)
+                {
+                    List<Item> cart = (List<Item>)Session["Cart"];
+                    
+                    for (int i = 0; i < cart.Count; i++)
+                    {
+                        sl = cart[i].GetSL();
+                        gia = Decimal.Parse(cart[i].GetSP().Gia.ToString());
+                        tt = tt + (sl * gia);
+                    }
+                }
+                String mtk = User.Identity.GetUserId();
+                var result  =  Cart.InserCart(mtk, ten, DiaChi,Email,Phone, tt);
+
+                if(result != null)
+                {
+                    List<Item> cart = (List<Item>)Session["Cart"];
+                    for (int i = 0; i < cart.Count; i++)
+                    {
+                        CartDetails.InsertCartDetails(result.MaGioHang, cart[i].GetSP().MaSanPham, cart[i].GetSL(), tt);
+                    }
+                    Session["Cart"] = null;
+                }
             }
-            return View();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
