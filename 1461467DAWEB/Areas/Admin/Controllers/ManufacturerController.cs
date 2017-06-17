@@ -12,11 +12,14 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/Manufacturer
         public ActionResult Index(int Page = 1)
         {
-            var resultManufacturer = Models.Manufacturer.ByListManufacturer(Page , 1);
+            var resultManufacturer = Models.Manufacturer.ByListManufacturer(Page , 5);
             return View(resultManufacturer);
         }
 
-
+        public ActionResult Search(String Key)
+        {
+            return View(Models.Manufacturer.SearchAccount(Key));
+        }
         // GET: Admin/Manufacturer/Create
         public ActionResult Create()
         {

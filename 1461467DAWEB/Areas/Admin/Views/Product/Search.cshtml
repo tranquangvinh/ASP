@@ -1,0 +1,49 @@
+﻿ @model IEnumerable<ShopConnection.View_lsp_hsx>
+
+
+
+<div class="col-md-3 col-sm-3 col-xs-12 form-group pull-right top_search">
+    @using (Html.BeginForm("Search", "Product", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." name="key">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+            </span>
+        </div>
+    }
+</div>
+<h2>Danh sách <small>Sản Phẩm</small></h2>
+<div class="panel-body">
+    <!-- Begin FooTable Hiding Columns -->
+    <table id="hiding-columns-example-1" class="table" data-expand-first="true">
+        <thead>
+            <tr>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Hình ảnh </th>
+                <th>Loại sản phẩm</th>
+                <th>Hãng sản xuất</th>
+                <th>Sửa</th>
+                <th>Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSanPham</td>
+                    <td>@item.TenSanPham</td>
+                    <td>@item.Gia</td>
+                    <td style="width: 80px; height: 80px; overflow: hidden;"><img style="display: block; max-width: 100%;" src="~/@item.TenHinh" alt=" " /></td>
+                    <td>@item.TenLoaiSanPham</td>
+                    <td>@item.TenHangSanXuat</td>
+                    <td class="text-edit"><a href="@Url.Action("Edit", "Product", new { id = item.MaSanPham})">Sửa</a></td>
+                    <td class="text-delete"><a href="@Url.Action("Delete", "Product", new { id = item.MaSanPham})">Xóa</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- End FooTable Hiding Columns -->
+</div>

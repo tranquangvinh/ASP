@@ -18,6 +18,7 @@ namespace _1461467DAWEB.Areas.Admin.Models
             sp.Insert();
         }
 
+
         public static SanPham GetProduct(int id)
         {
             var db = new ShopConnectionDB();

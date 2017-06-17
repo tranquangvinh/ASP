@@ -1,0 +1,7 @@
+﻿@model IEnumerable<ShopConnection.HangSanXuat>
+@{Layout = null;}
+<ul class="list-category-toggle list-unstyled">
+    @foreach (var item in Model) { 
+        <li><a href="@Url.Action("SanPhamHSX", "Products", new { id = item.MaHangSanXuat })">@item.TenHangSanXuat</a></li>
+    }
+</ul>

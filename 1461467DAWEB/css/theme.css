@@ -5925,7 +5925,7 @@ a.protect-icon:hover {
 }
 .left-box1 {
   float: left;
-  width: 26%;
+  width: 25%;
 }
 .right-box1 {
   float: left;
@@ -16226,3 +16226,4 @@ td.product-info-total .product-info .desc {
 .desc-size-thumb .table-striped > tbody > tr > td {
   padding: 5px 20px;
 }
+ 

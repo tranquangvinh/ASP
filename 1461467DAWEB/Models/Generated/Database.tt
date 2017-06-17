@@ -12,6 +12,7 @@
 	TrackModifiedColumns = false;
 	ExplicitColumns = true;
 	IncludeViews = true;
+
 	ExcludePrefix = new string[] {}; // Exclude tables by prefix.
 
     // Read schema

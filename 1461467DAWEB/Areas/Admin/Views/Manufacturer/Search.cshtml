@@ -1,0 +1,41 @@
+﻿ @model IEnumerable<ShopConnection.HangSanXuat>
+
+
+<div class="col-md-3 col-sm-3 col-xs-12 form-group pull-right top_search">
+    @using (Html.BeginForm("Search", "Manufacturer", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." name="key">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+            </span>
+        </div>
+    }
+</div>
+
+<h2>Danh sách  <small>hãng sản xuất</small></h2>
+<div class="panel-body">
+    <!-- Begin FooTable Hiding Columns -->
+    <table id="hiding-columns-example-1" class="table" data-expand-first="true">
+        <thead>
+            <tr>
+                <th data-visible="false">Mã Hãng</th>
+                <th>Tên Hãng Sản Xuất</th>
+                <th>Sửa</th>
+                <th data-breakpoints="xs">Xóa</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaHangSanXuat</td>
+                    <td>@item.TenHangSanXuat</td>
+                    <td class="text-edit"><a href="@Url.Action("Edit", "Manufacturer", new { id = item.MaHangSanXuat })">Sửa</a></td>
+                    <td class="text-delete"><a href="@Url.Action("Delete", "Manufacturer",  new { id = item.MaHangSanXuat })">Xóa</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

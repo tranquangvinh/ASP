@@ -25,6 +25,12 @@ namespace _1461467DAWEB.Areas.Admin.Models
             lsp.Insert();
         }
 
+        public static IEnumerable<LoaiSanPham> SearchAccount(String key)
+        {
+            var db = new ShopConnectionDB();
+            return db.Fetch<LoaiSanPham>("select * from LoaiSanPham where TenLoaiSanPham LIKE @0", "%" + key + "%");
+        }
+
         public static LoaiSanPham GetProductType(int id)
         {
             var db = new ShopConnectionDB();

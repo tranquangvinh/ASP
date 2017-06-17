@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using _1461467DAWEB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,11 @@ namespace _1461467DAWEB.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var spmoi = SanPhamBus.ListProductNew();
+            ViewBag.spnb = SanPhamBus.ListProductHighlights();
+            ViewBag.spbc = SanPhamBus.ListProductsSell();
+            ViewBag.spxn = SanPhamBus.ListProductsViews();
+            return View(spmoi);
         }
 
         public ActionResult About()

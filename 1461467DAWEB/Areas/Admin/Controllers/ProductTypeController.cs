@@ -13,10 +13,14 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/ProductType
         public ActionResult Index(int Page = 1)
         {
-            var resultProductType =  Models.ProductType.ByListProductType(Page, 1);
+            var resultProductType =  Models.ProductType.ByListProductType(Page, 5);
             return View(resultProductType);
         }
 
+        public ActionResult Search(String Key)
+        {
+            return View(Models.ProductType.SearchAccount(Key));
+        }
         // GET: Admin/ProductType/Create
         public ActionResult Create()
         {

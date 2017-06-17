@@ -22,10 +22,14 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         // GET: Admin/Account
         public ActionResult Index(int Page = 1)
         {
-            var resultListAcount = Models.AspNetUsersModel.ListAccount(Page, 1);
+            var resultListAcount = Models.AspNetUsersModel.ListAccount(Page, 5);
             return View(resultListAcount);
         }
 
+        public ActionResult Search(String Key)
+        {
+            return View(Models.AspNetUsersModel.SearchAccount(Key));
+        }
 
         // GET: Admin/Account/Create
         public ActionResult Create()

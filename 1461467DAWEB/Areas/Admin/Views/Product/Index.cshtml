@@ -1,5 +1,20 @@
-﻿@model PetaPoco.Page<ShopConnection.View_lsp_hsx> 
+﻿
 
+@model PetaPoco.Page<ShopConnection.View_lsp_hsx>
+
+
+
+<div class="col-md-3 col-sm-3 col-xs-12 form-group pull-right top_search">
+    @using (Html.BeginForm("Search", "Product", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for..." name="key">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+            </span>
+        </div>
+    }
+</div>
 <h2>Danh sách <small>Sản Phẩm</small></h2>
 <div class="panel-body">
     <!-- Begin FooTable Hiding Columns -->
@@ -65,7 +80,7 @@
             }
 
 
-           
+
         </ul>
     </div>
 </div>

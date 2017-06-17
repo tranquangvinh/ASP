@@ -1,0 +1,110 @@
+﻿@model PetaPoco.Page<ShopConnection.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+    <div class="content-page">
+        <div class="container">
+           
+            <!-- End Banner -->
+            <div class="bread-crumb radius">
+                <a href="#">Home</a> <span>Sản Phẩm</span>
+            </div>
+            <!-- End Bread Crumb -->
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="content-grid-boxed">
+                        <div class="sort-pagi-bar clearfix">
+                            <div class="view-type pull-left">
+                                <a href="grid-boxed-banner.html" class="grid-view"></a>
+                                <a href="list-boxed-banner.html" class="list-view active"></a>
+                            </div>
+                            <div class="sort-paginav pull-right">
+                                <div class="sort-bar select-box">
+                                    <label>Sort By:</label>
+                                    <select>
+                                        <option value="">position</option>
+                                        <option value="">price</option>
+                                    </select>
+                                </div>
+                                <div class="show-bar select-box">
+                                    <label>Show:</label>
+                                    <select>
+                                        <option value="">20</option>
+                                        <option value="">12</option>
+                                        <option value="">24</option>
+                                    </select>
+                                </div>
+                                <div class="pagi-bar">
+                                    <a href="#" class="current-page">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#" class="next-page"><i class="fa fa-caret-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Sort PagiBar -->
+                        <div class="list-pro-color">
+                            @foreach (var item in Model.Items)
+                            {
+                                <div class="item-product-list">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-5 col-xs-12">
+                                            <div class="item-pro-color">
+                                                <div class="product-thumb">
+                                                    <a href="detail.html" class="product-thumb-link">
+                                                        <img data-color="black" class="active" src="~/@item.TenHinh" alt="">
+                                                        <img data-color="purple" src="images/photos/fashion/3.jpg" alt="">
+                                                        <img data-color="blue" src="images/photos/fashion/4.jpg" alt="">
+                                                        <img data-color="cyan" src="images/photos/fashion/5.jpg" alt="">
+                                                    </a>
+                                                    <a href="quick-view.html" class="quickview-link plus fancybox.iframe"><span>quick view</span></a>
+                                                </div>
+                                                <div class="list-color">
+                                                    <a href="#" data-color="black" style="background:#404040"></a>
+                                                    <a href="#" data-color="purple" style="background:#ff8ff8"></a>
+                                                    <a href="#" data-color="blue" style="background:#868fff"></a>
+                                                    <a href="#" data-color="cyan" style="background:#80e6ff"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-7 col-xs-12">
+                                            <div class="product-info">
+                                                <h3 class="product-title"><a href="detail.html">@item.TenSanPham</a></h3>
+                                                <div class="product-price">
+                                                    <ins><span>@item.Gia</span></ins>
+                                                    <del><span>$400.00</span></del>
+                                                </div>
+                                                <p class="desc">@Html.Raw(item.MoTa)</p>
+                                                <div class="product-rate">
+                                                    <div class="product-rating" style="width:90%"></div>
+                                                </div>
+                                                <div class="product-extra-link2">
+                                                    <a href="#" class="addcart-link">Add to Cart</a>
+                                                    <a href="#" class="wishlist-link"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                                                    <a href="#" class="compare-link"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                      
+                            <!-- End Item -->
+                           
+                            <!-- End Item -->
+                            <div class="pagi-bar bottom">
+                                <a class="current-page" href="#">1</a>
+                                <a href="#">2</a>
+                                <a class="next-page" href="#"><i aria-hidden="true" class="fa fa-caret-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- End List Pro color -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

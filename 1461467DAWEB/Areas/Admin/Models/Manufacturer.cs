@@ -23,6 +23,12 @@ namespace _1461467DAWEB.Areas.Admin.Models
             lsp.Insert();
         }
 
+        public static IEnumerable<HangSanXuat> SearchAccount(String key)
+        {
+            var db = new ShopConnectionDB();
+            return db.Fetch<HangSanXuat>("select * from HangSanXuat where TenHangSanXuat LIKE @0", "%" + key + "%");
+        }
+
         public static HangSanXuat GetManufacturer(int id)
         {
             var db = new ShopConnectionDB();

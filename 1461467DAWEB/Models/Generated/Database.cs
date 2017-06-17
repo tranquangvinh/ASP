@@ -26,7 +26,7 @@
 // 
 //     Connection String Name: `ShopConnection`
 //     Provider:               `System.Data.SqlClient`
-//     Connection String:      `Data Source=DESKTOP-AL6E44R;Initial Catalog=ShopBanHang;Integrated Security=True`
+//     Connection String:      `Data Source=.;Initial Catalog=ShopBanHang;Integrated Security=True`
 //     Schema:                 ``
 //     Include Views:          `True`
 
@@ -645,51 +645,21 @@ namespace ShopConnection
 
 
 
-	}
-
-    
-
-	[TableName("dbo.sysdiagrams")]
 
 
-
-	[PrimaryKey("diagram_id")]
-
-
-
-
-	[ExplicitColumns]
-
-    public partial class sysdiagram : ShopConnectionDB.Record<sysdiagram>  
-    {
-
-
-
-		[Column] public string name { get; set; }
+		[Column] public int? NoiBat { get; set; }
 
 
 
 
 
-		[Column] public int principal_id { get; set; }
+		[Column] public int? SoLuongBan { get; set; }
 
 
 
 
 
-		[Column] public int diagram_id { get; set; }
-
-
-
-
-
-		[Column] public int? version { get; set; }
-
-
-
-
-
-		[Column] public byte[] definition { get; set; }
+		[Column] public int? SoLuongXem { get; set; }
 
 
 

@@ -13,5 +13,11 @@ namespace _1461467DAWEB.Areas.Admin.Models
             var db = new ShopConnectionDB();
             return db.Page<View_lsp_hsx>(pageNumber, itemPage, "select * from View_lsp_hsx");
         }
+
+        public static IEnumerable<View_lsp_hsx> SearchAccount(String key)
+        {
+            var db = new ShopConnectionDB();
+            return db.Fetch<View_lsp_hsx>("select * from View_lsp_hsx where TenSanPham LIKE @0", "%" + key + "%");
+        }
     }
 }

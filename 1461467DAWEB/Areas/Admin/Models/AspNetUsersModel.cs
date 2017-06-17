@@ -39,5 +39,11 @@ namespace _1461467DAWEB.Areas.Admin.Models
             user.PasswordHash = pass;
             db.Update(user);
         }
+
+        public static IEnumerable<View_ChucVu> SearchAccount(String key)
+        {
+            var db = new ShopConnectionDB();
+            return db.Fetch<View_ChucVu>("select * from View_ChucVu where Email LIKE @0", "%" + key +  "%");
+        }
     }
 }
