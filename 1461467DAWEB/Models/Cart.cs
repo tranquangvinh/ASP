@@ -17,6 +17,7 @@ namespace _1461467DAWEB.Models
             gh.Email = Email;
             gh.Phone = Phone;
             gh.TongTien = tt;
+            gh.TrangThai = 1;
             db.Insert(gh);
             return gh;
         }

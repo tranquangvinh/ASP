@@ -43,5 +43,10 @@ namespace _1461467DAWEB.Controllers
             var dssp = SanPhamBus.ListProductPage(id, page, 8);
             return View(dssp);
         }
+        [HttpPost]
+        public ActionResult SearhSP(String Search)
+        {
+            return View(SanPhamBus.SearchProduct(Search));
+        }
     }
 }

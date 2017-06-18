@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Sửa<small>thông tin giỏ hàng</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                @using (Html.BeginForm("Edit", "Cart", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                {
+                    <input value="@Model.MaGioHang" name="MaGioHang" type="hidden" />
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            Tên người mua <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="TenNguoiMua" placeholder="Nhập tên sản phẩm" required="required" value="@Model.TenNguoiMua" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            Địa chỉ<span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="DiaChi" placeholder="Nhập tên sản phẩm" required="required" value="@Model.DiaChi" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="Email" placeholder="Nhập tên sản phẩm" required="required" value="@Model.Email" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            Phone <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="name" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="Phone" placeholder="Nhập tên sản phẩm" required="required" value="@Model.Phone" type="text">
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">
+                            TrangThai <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <select class="form-control col-md-7 col-xs-12" name="TrangThai">
+                                @if(Model.TrangThai == 1)
+                                {
+                                    <option value="1" selected="selected">Đang Giao</option>
+                                    <option value="2">Đã Giao</option>
+                                    <option value="3">Chưa thanh toán</option>
+                                    <option value="3">Đã thanh toán</option>
+                                }
+                                else if (Model.TrangThai == 2)
+                                {
+                                    <option value="1" >Đang Giao</option>
+                                    <option value="2" selected="selected">Đã Giao</option>
+                                    <option value="3">Chưa thanh toán</option>
+                                    <option value="3">Đã thanh toán</option>
+                                }
+                                else if (Model.TrangThai == 3)
+                                {
+                                    <option value="1">Đang Giao</option>
+                                    <option value="2" >Đã Giao</option>
+                                    <option value="3"selected="selected">Chưa thanh toán</option>
+                                    <option value="3">Đã thanh toán</option>
+                                }
+                                else if (Model.TrangThai == 4)
+                                {
+                                    <option value="1">Đang Giao</option>
+                                    <option value="2" >Đã Giao</option>
+                                    <option value="3">Chưa thanh toán</option>
+                                    <option value="3" selected="selected">Đã thanh toán</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="submit" class="btn btn-primary">Cancel</button>
+                            <button id="send" type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

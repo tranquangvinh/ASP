@@ -20,5 +20,10 @@ namespace _1461467DAWEB.Controllers
             return View(HangSanXuatBus.DanhSach());
         }
 
+        public ActionResult SearchSP()
+        {
+            return View();
+        }
+
     }
 }

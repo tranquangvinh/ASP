@@ -1,0 +1,6 @@
+﻿@{Layout = null;}
+@using (Html.BeginForm("SearhSP", "Products",FormMethod.Post ,  new { @class = "smart-search-form ajax-search" }))
+{
+    <input type="text" name="Search" onblur="if (this.value=='') this.value = this.defaultValue" onfocus="if (this.value==this.defaultValue) this.value = ''" value="Search...">
+    <input type="submit" value="">
+}

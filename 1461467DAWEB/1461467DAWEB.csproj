@@ -199,14 +199,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminAccountController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CartController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManufacturerController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\Admin\Models\AspNetUsersModel.cs" />
+    <Compile Include="Areas\Admin\Models\Cart.cs" />
     <Compile Include="Areas\Admin\Models\Manufacturer.cs" />
     <Compile Include="Areas\Admin\Models\Product.cs" />
     <Compile Include="Areas\Admin\Models\ProductType.cs" />
     <Compile Include="Areas\Admin\Models\ProductType_Manufacturer.cs" />
+    <Compile Include="Areas\Admin\Models\View_GH.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BinhLuanController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -1058,6 +1061,8 @@
     <Content Include="Areas\Admin\Views\ProductType\Search.cshtml" />
     <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <Content Include="Areas\Admin\Views\Cart\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Cart\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1749,6 +1754,8 @@
     <Content Include="Views\Products\SanPhamLSP.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\ThanhToan.cshtml" />
+    <Content Include="Views\Menu\SearchSP.cshtml" />
+    <Content Include="Views\Products\SearhSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

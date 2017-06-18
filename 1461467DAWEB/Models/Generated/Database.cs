@@ -591,6 +591,12 @@ namespace ShopConnection
 
 
 
+
+
+		[Column] public int? TrangThai { get; set; }
+
+
+
 	}
 
     
@@ -842,6 +848,68 @@ namespace ShopConnection
 
 
 		[Column] public string Expr1 { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("dbo.View_GioHang")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class View_GioHang : ShopConnectionDB.Record<View_GioHang>  
+    {
+
+
+
+		[Column] public int MaGioHang { get; set; }
+
+
+
+
+
+		[Column] public string TenNguoiMua { get; set; }
+
+
+
+
+
+		[Column] public string DiaChi { get; set; }
+
+
+
+
+
+		[Column] public string Email { get; set; }
+
+
+
+
+
+		[Column] public string Phone { get; set; }
+
+
+
+
+
+		[Column] public decimal? TongTien { get; set; }
+
+
+
+
+
+		[Column] public int? TrangThai { get; set; }
+
+
+
+
+
+		[Column] public string UserName { get; set; }
 
 
 

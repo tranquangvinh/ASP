@@ -66,5 +66,11 @@ namespace _1461467DAWEB.Models
             String query = "select top " + limit + " * from sanpham where MaSanPham not in (" + idSP + ") and LoaiSp = " + LSP;
             return db.Query<SanPham>(query);
         }
+
+        public static IEnumerable<SanPham> SearchProduct(String key)
+        {
+            var db = new ShopConnectionDB();
+            return db.Fetch<SanPham>("select * from SanPham where TenSanPham LIKE @0", "%" + key + "%");
+        }
     }
 }
