@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ShopConnection;
 namespace _1461467DAWEB.Areas.Admin.Controllers
-{
+{     
     [Authorize(Roles = "Manager, Admin")]
     public class ProductController : Controller
     {

@@ -7,7 +7,7 @@ using ShopConnection;
 namespace _1461467DAWEB.Areas.Admin.Controllers
 {
     [Authorize(Roles ="Manager, Admin")]
-    public class CartController : Controller
+    public class CartAdminController : Controller
     {
         // GET: Admin/Cart
         public ActionResult Index(int Page=1)
@@ -16,18 +16,18 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
         }
         public ActionResult Edit(int id)
         {
-            return View(Models.Cart.Details(id));
+            return View(Models.CartAdmin.Details(id));
         }
 
         [HttpPost]
         public ActionResult Edit(GioHang gh)
         {
-            Models.Cart.UpdateCart(gh);
+            Models.CartAdmin.UpdateCart(gh);
             return RedirectToAction("Index");
         }
         public ActionResult Delete(int id)
         {
-            Models.Cart.DeleteCart(id);
+            Models.CartAdmin.DeleteCart(id);
             return RedirectToAction("Index");
         }
 

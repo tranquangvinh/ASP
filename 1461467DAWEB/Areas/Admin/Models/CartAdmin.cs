@@ -5,7 +5,7 @@ using System.Web;
 using ShopConnection;
 namespace _1461467DAWEB.Areas.Admin.Models
 {
-    public class Cart
+    public class CartAdmin
     {
         public static GioHang Details(int id)
         {
