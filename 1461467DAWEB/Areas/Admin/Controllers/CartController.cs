@@ -25,10 +25,11 @@ namespace _1461467DAWEB.Areas.Admin.Controllers
             Models.Cart.UpdateCart(gh);
             return RedirectToAction("Index");
         }
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
-
+            Models.Cart.DeleteCart(id);
             return RedirectToAction("Index");
         }
+
     }
 }
