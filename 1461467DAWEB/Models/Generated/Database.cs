@@ -425,6 +425,12 @@ namespace ShopConnection
 
 
 
+		[Column] public string NoiDung { get; set; }
+
+
+
+
+
 		[Column] public string EmailBinhLuan { get; set; }
 
 

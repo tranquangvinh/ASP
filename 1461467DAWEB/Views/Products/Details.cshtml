@@ -90,10 +90,34 @@
                                         </div>
                                     }
                                 </div>
+                                <div class="warp-comments">
+                                    <h2>Bình Luận</h2>
+                                    @using (Html.BeginForm("Create", "BinhLuan", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <input name="MaSanPham" value="@Model.MaSanPham" type="hidden" />
+                                        <textarea class="form-control" name="NoiDung"></textarea>
+                                        <button style="margin: 10px 0px;" type="submit" class="btn btn-success">Gửi</button>
+                                    }
+                                    <div class="conments">
+                                        @foreach (var item in ViewBag.ListComments)
+                                        {
+                                            <div style="color: black; font-weight:bold; " class="comment-name">
+                                                @item.EmailBinhLuan
+                                            </div>
+                                            <div style="color: black; margin-top: 5px;" class="comments-content">
+                                                - @item.NoiDung
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
                                 <!-- Detail Info -->
                             </div>
                         </div>
                     </div>
+                   
+
                     <!-- End Main Detail -->
                     <div class="product-related border radius">
                         <h2 class="title18">SẢN PHẨM LIÊN QUAN</h2>

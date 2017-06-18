@@ -208,6 +208,7 @@
     <Compile Include="Areas\Admin\Models\ProductType.cs" />
     <Compile Include="Areas\Admin\Models\ProductType_Manufacturer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BinhLuanController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -217,6 +218,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BinhLuan.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CartDetails.cs" />
     <Compile Include="Models\EmailFormModel.cs" />
@@ -1751,6 +1753,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="upload\img\" />
+    <Folder Include="Views\BinhLuan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
