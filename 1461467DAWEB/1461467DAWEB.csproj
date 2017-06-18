@@ -200,11 +200,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\CartController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CartDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\ManufacturerController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\Admin\Models\AspNetUsersModel.cs" />
     <Compile Include="Areas\Admin\Models\Cart.cs" />
+    <Compile Include="Areas\Admin\Models\View_CTDH.cs" />
     <Compile Include="Areas\Admin\Models\Manufacturer.cs" />
     <Compile Include="Areas\Admin\Models\Product.cs" />
     <Compile Include="Areas\Admin\Models\ProductType.cs" />
@@ -1063,6 +1065,7 @@
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <Content Include="Areas\Admin\Views\Cart\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Cart\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CartDetails\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -745,6 +745,86 @@ namespace ShopConnection
 
     
 
+	[TableName("dbo.View_ChiTieDonHang")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class View_ChiTieDonHang : ShopConnectionDB.Record<View_ChiTieDonHang>  
+    {
+
+
+
+		[Column] public string TenLoaiSanPham { get; set; }
+
+
+
+
+
+		[Column] public string TenHangSanXuat { get; set; }
+
+
+
+
+
+		[Column] public int MaSanPham { get; set; }
+
+
+
+
+
+		[Column] public string TenSanPham { get; set; }
+
+
+
+
+
+		[Column] public decimal? Gia { get; set; }
+
+
+
+
+
+		[Column] public string TenHinh { get; set; }
+
+
+
+
+
+		[Column] public int? SoLuong { get; set; }
+
+
+
+
+
+		[Column] public decimal? TongTien { get; set; }
+
+
+
+
+
+		[Column] public int? idGioHang { get; set; }
+
+
+
+
+
+		[Column] public int? idMaSanPham { get; set; }
+
+
+
+
+
+		[Column] public int idChiTietDonHang { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("dbo.View_ChucVu")]
 
 
