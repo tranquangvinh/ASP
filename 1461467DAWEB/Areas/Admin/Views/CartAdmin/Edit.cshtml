@@ -17,7 +17,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                @using (Html.BeginForm("Edit", "Cart", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                @using (Html.BeginForm("Edit", "CartAdmin", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
                 {
                     <input value="@Model.MaGioHang" name="MaGioHang" type="hidden" />
                     <div class="item form-group">
